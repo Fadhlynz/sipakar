@@ -77,4 +77,9 @@ class DoctorsController extends Controller
 
         return back();
     }
+
+    public function data()
+    {
+      return Doctor::latest()->get();
+    }
 }
