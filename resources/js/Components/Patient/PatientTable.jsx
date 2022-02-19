@@ -105,7 +105,7 @@ export default function PatientTable(props) {
                 }}
                 columns={[
                     "No",
-                    "Name",
+                    "Nama",
                     "NIK",
                     "Tempat Lahir",
                     "Tanggal Lahir",
