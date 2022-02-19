@@ -65,14 +65,14 @@ class PatientsController extends Controller
     ]);
     } else {
     Patient::where('id', $request->id)->update([
-    'nik' => $request->nik,
-    'name' => $request->name,
-    'born_place' => $request->born_place,
-    'born_date' => $request->born_date,
-    'gender' => $request->gender,
-    'address' => $request->address,
-    'hp' => $request->hp,
-    'job' => $request->job,
+        'nik' => $request->nik,
+        'name' => $request->name,
+        'born_place' => $request->born_place,
+        'born_date' => $request->born_date,
+        'gender' => $request->gender,
+        'address' => $request->address,
+        'hp' => $request->hp,
+        'job' => $request->job,
     ]);
     }
 
@@ -84,5 +84,10 @@ class PatientsController extends Controller
     Patient::where('id', $request->id)->delete();
 
     return back();
+    }
+
+    public function data()
+    {
+    return Patient::latest()->get();
     }
 }

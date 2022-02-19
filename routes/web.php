@@ -47,8 +47,8 @@ Route::middleware('auth')->group(function () {
 
         Route::get('/patients', [PatientsController::class, 'index']);
         Route::post('/patients', [PatientsController::class, 'insert']);
-        Route::post('/patient-delete', [DoctorsController::class, 'delete']);
-        Route::post('/patient-update', [DoctorsController::class, 'update']);
+        Route::post('/patient-delete', [PatientsController::class, 'delete']);
+        Route::post('/patient-update', [PatientsController::class, 'update']);
 
         Route::get('/activity', [ActivityController::class, 'index']);
         Route::get('/settings', [SettingsController::class, 'index']);
