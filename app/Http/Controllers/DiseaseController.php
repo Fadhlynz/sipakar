@@ -31,6 +31,36 @@ class DiseaseController extends Controller
       return back();
     }
 
+    public function update(Request $request)
+    {
+      $request->validate([
+      'name' => 'required',
+      'detail' => 'required',
+      'solution' => 'required',
+      'image' => 'required',
+      ]);
+
+      if ($request->image) {
+        $foto = $request->file('image');
+        $fileName = $request->name . '.' . $foto[0]->getClientOriginalExtension();
+
+        $path = $request->image[0]->storeAs('public/gambar', $fileName);
+
+      Disease::where('id', $request->id)->update([
+      'name' => $request->name,
+      'detail' => $request->detail,
+      'solution' => $request->solution,
+      'image' => $path,
+      ]);
+    } else {
+      Disease::where('id', $request->id)->update([
+      'name' => $request->name,
+      'detail' => $request->detail,
+      'solution' => $request->solution,
+      ]);
+    }
+  }
+
     public function data()
     {
       return Disease::latest()->get();
