@@ -1,11 +1,12 @@
 <?php
 
-use App\Http\Controllers\Admin\ActivityController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DoctorsController;
 use App\Http\Controllers\Admin\PatientsController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\SettingsController;
+use App\Http\Controllers\DataController;
+use App\Http\Controllers\DiseaseController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -50,7 +51,9 @@ Route::middleware('auth')->group(function () {
         Route::post('/patient-delete', [PatientsController::class, 'delete']);
         Route::post('/patient-update', [PatientsController::class, 'update']);
 
-        Route::get('/activity', [ActivityController::class, 'index']);
+        Route::post('/disease', [DiseaseController::class, 'store']);
+
+        Route::get('/data', [DataController::class, 'index']);
         Route::get('/settings', [SettingsController::class, 'index']);
         Route::get('/profile', [ProfileController::class, 'index']);  
     });

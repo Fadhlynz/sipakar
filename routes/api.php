@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\DoctorsController;
 use App\Http\Controllers\Admin\PatientsController;
+use App\Http\Controllers\DiseaseController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +19,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/doctors-data', [DoctorsController::class, 'data'])->name('doctors.data');
 
 Route::get('/patients-data', [PatientsController::class, 'data'])->name('patients.data');
+
+Route::get('/disease-data', [DiseaseController::class, 'data'])->name('disease.data');
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
