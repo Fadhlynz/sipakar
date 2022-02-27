@@ -52,6 +52,8 @@ Route::middleware('auth')->group(function () {
         Route::post('/patient-update', [PatientsController::class, 'update']);
 
         Route::post('/disease', [DiseaseController::class, 'store']);
+        Route::post('/disease-update', [DiseaseController::class, 'update']);
+        Route::post('/disease-delete', [DiseaseController::class, 'delete']);
 
         Route::get('/data', [DataController::class, 'index']);
         Route::get('/settings', [SettingsController::class, 'index']);

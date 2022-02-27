@@ -40,7 +40,7 @@ class DiseaseController extends Controller
       'image' => 'required',
       ]);
 
-      if ($request->image) {
+      if ($request->file('image')) {
         $foto = $request->file('image');
         $fileName = $request->name . '.' . $foto[0]->getClientOriginalExtension();
 
@@ -59,6 +59,15 @@ class DiseaseController extends Controller
       'solution' => $request->solution,
       ]);
     }
+
+    return back();
+  }
+
+  public function delete(Request $request)
+  {
+    Disease::where('id', $request->id)->delete();
+
+    return back();
   }
 
     public function data()
