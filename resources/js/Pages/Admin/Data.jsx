@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Admin from "../../Layouts/Admin";
 import Disease from "./Disease";
+import Symptom from "./Symptom";
 
 export default function Data() {
     const [tab, setTab] = useState("penyakit");
@@ -47,6 +48,7 @@ export default function Data() {
                     </div>
           </div>
           {tab == "penyakit" && <Disease />}
+          {tab == "gejala" && <Symptom />}
             </div>
         </Admin>
     );

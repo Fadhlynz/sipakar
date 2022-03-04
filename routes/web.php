@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\DataController;
 use App\Http\Controllers\DiseaseController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\SymptomController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -54,6 +55,10 @@ Route::middleware('auth')->group(function () {
         Route::post('/disease', [DiseaseController::class, 'store']);
         Route::post('/disease-update', [DiseaseController::class, 'update']);
         Route::post('/disease-delete', [DiseaseController::class, 'delete']);
+        
+        Route::post('/symptom', [SymptomController::class, 'store']);
+        Route::post('/symptom-update', [SymptomController::class, 'update']);
+        Route::post('/symptom-delete', [SymptomController::class, 'delete']);
 
         Route::get('/data', [DataController::class, 'index']);
         Route::get('/settings', [SettingsController::class, 'index']);
