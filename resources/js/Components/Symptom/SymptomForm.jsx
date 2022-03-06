@@ -76,7 +76,7 @@ export default function SymptomForm() {
                     className="flex flex-col space-y-3"
                 >
                     <div className="flex flex-col space-y-1">
-                        <h1 className="text-gray-500 text-sm">Nama Gejala</h1>
+                        <h1 className="text-gray-500 text-sm">Gejala</h1>
                         <input
                             onChange={(e) => {
                                 setSymptomData((symptomData) => ({

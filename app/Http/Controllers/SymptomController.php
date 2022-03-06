@@ -11,7 +11,7 @@ class SymptomController extends Controller
     {
       $request->validate([
         'name' => 'required',
-        'code' => 'required|unique:symptom',
+        'code' => 'required|unique:symptoms',
       ],[
         'name.required' => 'Nama gejala harus diisi!',
         'code.required' => 'Kode gejala harus diisi!',
@@ -24,5 +24,32 @@ class SymptomController extends Controller
       ]);
 
       return back();
+    }
+
+    public function update(Request $request)
+    {
+      $request->validate([
+        'name' => 'required',
+        'code' => 'required|unique:symptoms',
+      ]);
+
+      Symptom::where('id', $request->id)->update([
+        'name' => $request->name,
+        'code' => $request->code,
+      ]);
+
+      return back();
+    }
+
+    public function delete(Request $request)
+    {
+      Symptom::where('id', $request->id)->delete();
+      
+      return back();
+    }
+
+    public function data()
+    {
+      return Symptom::latest()->get();
     }
 }

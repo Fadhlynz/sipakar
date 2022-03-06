@@ -96,7 +96,7 @@ export default function DiseaseTable(props) {
                             _(
                                 <button
                                     onClick={() => {
-                                        deleteDoctor(disease.id, disease.name);
+                                        deleteDisease(disease.id, disease.name);
                                     }}
                                     className="p-2 rounded-lg bg-red-100 hover:bg-red-200 transition duration-200"
                                 >

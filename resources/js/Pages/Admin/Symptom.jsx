@@ -1,8 +1,9 @@
 import React from 'react'
-import { useRecoilState } from "recoil";
+import { useRecoilState, useResetRecoilState } from "recoil";
 import { modalData, modalToggle } from "../../Store/Modal";
 import * as MdIcons from "react-icons/md";
 import SymptomForm from '../../Components/Symptom/SymptomForm';
+import SymptomTable from '../../Components/Symptom/SymptomTable';
 
 export default function Symptom() {
   const [showModal, setShowModal] = useRecoilState(modalToggle);
@@ -23,7 +24,7 @@ export default function Symptom() {
               <MdIcons.MdAddCircle size={16} />
               <h1>Tambah</h1>
           </button>
-          {/* <DiseaseTable /> */}
+          <SymptomTable />
       </div>
   );
 }

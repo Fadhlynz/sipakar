@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSymtonsTable extends Migration
+class CreateSymptomsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateSymtonsTable extends Migration
      */
     public function up()
     {
-        Schema::create('symtons', function (Blueprint $table) {
+        Schema::create('symptoms', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('code')->unique();
@@ -28,6 +28,6 @@ class CreateSymtonsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('symtons');
+        Schema::dropIfExists('symptoms');
     }
 }

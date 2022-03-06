@@ -9,7 +9,7 @@ import ZenDialog from "../ZenDialog";
 import { Grid, _ } from "gridjs-react";
 import { baseUrlApi } from "../../Store/Global";
 
-export default function DiseaseTable(props) {
+export default function SymptomTable(props) {
     const [showDialog, setShowDialog] = useRecoilState(dialogToggle);
     const [showModal, setShowModal] = useRecoilState(modalToggle);
     const [editData, setEditData] = useRecoilState(modalData);
@@ -25,7 +25,7 @@ export default function DiseaseTable(props) {
     const sureDelete = (confirm) => {
         if (confirm) {
             Inertia.post(
-                "disease-delete",
+                "symptom-delete",
                 { id: dialogInfo.id },
                 {
                     onSuccess: () => {
@@ -42,7 +42,7 @@ export default function DiseaseTable(props) {
         }
     };
 
-    const deleteDisease = (id, name) => {
+    const deleteSymptom = (id, name) => {
         setDialogInfo({
             title: "Yakin Menghapus?",
             message: "Data yang dihapus tidak dapat dikembalikan. Lanjutkan?",
@@ -62,27 +62,16 @@ export default function DiseaseTable(props) {
             />
             <Grid
                 server={{
-                    url: url + "disease-data",
+                    url: url + "symptom-data",
                     then: (data) =>
-                        data.map((disease, index) => [
+                        data.map((symptom, index) => [
                             index + 1,
-                            disease.name,
-                            disease.detail,
-                            disease.solution,
-                            _(
-                                <img
-                                    className="h-24"
-                                    src={disease.image.replace(
-                                        "public",
-                                        "storage"
-                                    )}
-                                    alt="Gambar Penyakit"
-                                />
-                            ),
+                            symptom.name,
+                            symptom.code,
                             _(
                                 <button
                                     onClick={() => {
-                                        setEditData(disease);
+                                        setEditData(symptom);
                                         setShowModal(true);
                                     }}
                                     className="p-2 rounded-lg bg-yellow-100 hover:bg-yellow-200 transition duration-200"
@@ -96,7 +85,7 @@ export default function DiseaseTable(props) {
                             _(
                                 <button
                                     onClick={() => {
-                                        deleteDoctor(disease.id, disease.name);
+                                        deleteSymptom(symptom.id, symptom.name);
                                     }}
                                     className="p-2 rounded-lg bg-red-100 hover:bg-red-200 transition duration-200"
                                 >
@@ -110,12 +99,10 @@ export default function DiseaseTable(props) {
                 }}
                 columns={[
                     "No",
-                    "Nama Penyakit",
-                    "Detail",
-                    "Solusi",
-                    "Gambar",
-                    "Aksi",
-                    "",
+                    "Gejala",
+                    "Code",
+                    "Edit",
+                    "Hapus",
                 ]}
                 search={true}
                 pagination={{
