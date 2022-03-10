@@ -97,13 +97,7 @@ export default function SymptomTable(props) {
                             ),
                         ]),
                 }}
-                columns={[
-                    "No",
-                    "Gejala",
-                    "Code",
-                    "Edit",
-                    "Hapus",
-                ]}
+                columns={["No", "Gejala", "Code", "Edit", "Hapus"]}
                 search={true}
                 pagination={{
                     enabled: true,
@@ -113,7 +107,7 @@ export default function SymptomTable(props) {
                 className={{
                     container:
                         "bg-white shadow-md rounded-lg overflow-hidden p-5 overflow-x-auto",
-                    table: "mt-5 min-w-full",
+                    table: "mt-5",
                     thead: "bg-gray-200",
                     th: "text-left text-sm font-medium text-gray-700 px-4 py-3",
                     tbody: "text-sm",
