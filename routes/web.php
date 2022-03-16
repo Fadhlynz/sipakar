@@ -9,7 +9,9 @@ use App\Http\Controllers\DataController;
 use App\Http\Controllers\DiseaseController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SymptomController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,4 +69,3 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/logout', [LoginController::class, 'logout']);
 });
-
