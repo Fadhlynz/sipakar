@@ -9,9 +9,9 @@ use App\Http\Controllers\DataController;
 use App\Http\Controllers\DiseaseController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SymptomController;
+use App\Http\Controllers\RuleController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,6 +61,8 @@ Route::middleware('auth')->group(function () {
         Route::post('/symptom', [SymptomController::class, 'store']);
         Route::post('/symptom-update', [SymptomController::class, 'update']);
         Route::post('/symptom-delete', [SymptomController::class, 'delete']);
+
+        Route::post('/rules', [RuleController::class, 'store']);
 
         Route::get('/data', [DataController::class, 'index']);
         Route::get('/settings', [SettingsController::class, 'index']);
