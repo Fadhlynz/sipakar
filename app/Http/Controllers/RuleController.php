@@ -9,12 +9,11 @@ class RuleController extends Controller
 {
     public function store(Request $request)
     {
-      $request->validate([
-      'symptom_id' => 'required',
-      'disease_id' => 'required',
-      'value' => 'required',
-      ]);
-
+      // $request->validate([
+      // 'symptom_id' => 'required',
+      // 'disease_id' => 'required',
+      // 'value' => 'required',
+      // ]);
       return request();
     }
 

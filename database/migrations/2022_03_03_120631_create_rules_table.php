@@ -16,7 +16,7 @@ class CreateRulesTable extends Migration
         Schema::create('rules', function (Blueprint $table) {
             $table->id();
             $table->string('disease_id');
-            $table->string('sympton_id');
+            $table->string('symptom_id');
             $table->double('value');
             $table->timestamps();
         });
